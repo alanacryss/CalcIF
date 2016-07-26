@@ -5,11 +5,20 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
+
+    TextView tvCalc;
+    TextView tvExp;
+    Button btn1, btn2, btn3, btn4, btn5, btn6, btn7, btn8, btn9, btnZero, btnSum, btnSubt, btnMult, btnDiv, btnParentRight, btnParentLeft;
+    String number;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +35,22 @@ public class MainActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+
+        TextView tvC = (TextView) findViewById(R.id.tvCalc);
+        TextView tvE = (TextView) findViewById(R.id.tvExp);
+        Button btn1 = (Button) findViewById(R.id.btn1);
+    }
+
+    public void addNumber(View view) {
+        number = ((TextView)view).getText().toString();
+        tvCalc = ((TextView) findViewById(R.id.tvCalc));
+        tvCalc.setText(tvCalc.getText() + number);
+    }
+    //Método para apagar os caracteres da View
+    public void backspace(View view) {
+        //String cls = ((TextView)view).getText().toString();
+        tvCalc = ((TextView) findViewById(R.id.tvCalc));
+        tvCalc.setText("");
     }
 
     @Override
