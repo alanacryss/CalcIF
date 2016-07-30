@@ -80,8 +80,9 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="70dp"
-        android:text="←"
-        android:textSize="30dp"
+        android:drawableRight="@android:drawable/ic_input_delete"
+        android:paddingRight="30dp"
+        android:textSize="40dp"
         android:id="@+id/btnBack"
         android:layout_alignTop="@+id/btnPorc"
         android:layout_toEndOf="@+id/btnPorc"
@@ -89,7 +90,7 @@
         android:textColor="@color/textcolor" />
 
     <Button
-        android:layout_width="70dp"
+        android:layout_width="80dp"
         android:layout_height="70dp"
         android:text="C"
         android:textSize="30dp"
@@ -98,7 +99,7 @@
         android:layout_toEndOf="@+id/btnBack"
         android:background="@color/btncolor"
         android:textColor="@color/textcolor"
-        android:onClick="backspace"/>
+        android:onClick="clearAll"/>
 
     <Button
         android:layout_width="wrap_content"
@@ -242,7 +243,7 @@
         android:onClick="addNumber"/>
 
     <Button
-        android:layout_width="70dp"
+        android:layout_width="80dp"
         android:layout_height="70dp"
         android:text="-"
         android:textSize="30dp"
@@ -254,7 +255,7 @@
         android:onClick="addNumber"/>
 
     <Button
-        android:layout_width="70dp"
+        android:layout_width="80dp"
         android:layout_height="70dp"
         android:text="x"
         android:textSize="20dp"
@@ -266,7 +267,7 @@
         android:onClick="addNumber"/>
 
     <Button
-        android:layout_width="70dp"
+        android:layout_width="80dp"
         android:layout_height="70dp"
         android:text="/"
         android:textSize="30dp"
@@ -278,7 +279,7 @@
         android:onClick="addNumber"/>
 
     <Button
-        android:layout_width="70dp"
+        android:layout_width="80dp"
         android:layout_height="70dp"
         android:text="+"
         android:textSize="25dp"
@@ -289,7 +290,7 @@
         android:textColor="@color/textcolor"
         android:onClick="addNumber"/>
 
-    <Button
+    <!--<Button
         android:layout_width="264dp"
         android:layout_height="70dp"
         android:text="="
@@ -297,16 +298,16 @@
         android:id="@+id/btnResult"
         android:layout_below="@id/btnParentLeft"
         android:background="@color/btncolorop"
-        android:textColor="@color/textcolor" />
+        android:textColor="@color/textcolor" />-->
 
     <Button
-        android:layout_width="70dp"
+        android:layout_width="80dp"
         android:layout_height="70dp"
         android:text="."
         android:textSize="30dp"
         android:id="@+id/btnPont"
-        android:layout_alignTop="@+id/btnResult"
-        android:layout_toEndOf="@+id/btnResult"
+        android:layout_marginLeft="264dp"
+        android:layout_below="@id/btnSum"
         android:background="@color/btncolorop"
         android:textColor="@color/textcolor"
         android:onClick="addNumber"/>

@@ -18,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
     TextView tvCalc;
     TextView tvExp;
     String number;
+    String compareParent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,13 +41,19 @@ public class MainActivity extends AppCompatActivity {
         //Button btn1 = (Button) findViewById(R.id.btn1);
     }
 
-    public void addNumber(View view) {
+    public void addNumber(View view, int value) {
         number = ((TextView)view).getText().toString();
         tvCalc = ((TextView) findViewById(R.id.tvCalc));
         tvCalc.setText(tvCalc.getText() + number);
+
     }
+
+    public void addOperator(View view, String operator) {
+
+    }
+
     //Método para apagar os caracteres da View
-    public void backspace(View view) {
+    public void clearAll(View view) {
 
         //String cls = ((TextView)view).getText().toString();
         tvCalc = ((TextView) findViewById(R.id.tvCalc));
