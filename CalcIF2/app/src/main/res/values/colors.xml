@@ -6,4 +6,5 @@
     <color name="btncolor">#191970</color>
     <color name="textcolor">#fff</color>
     <color name="btncolorop">#483D8B</color>
+    <color name="backgroundapp">#d0d0d0</color>
 </resources>

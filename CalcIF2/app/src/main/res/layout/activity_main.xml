@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
+    android:background="@color/backgroundapp"
     tools:context="com.jho.alana.calcif.MainActivity">
 
     <android.support.design.widget.AppBarLayout
@@ -31,10 +32,11 @@
         android:layout_gravity="bottom|end"
         app:fabSize="normal"
         app:backgroundTint="@color/btncolorop"
-        android:layout_margin="@dimen/fab_margin"
+        android:layout_marginBottom="16dp"
+        android:layout_marginRight="110dp"
         android:src="@drawable/igualdade" />
 
-    <android.support.design.widget.FloatingActionButton
+    <!--<android.support.design.widget.FloatingActionButton
         android:id="@+id/fab1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -44,6 +46,6 @@
         android:layout_marginRight="@dimen/fab1_margin"
         android:layout_marginBottom="@dimen/fab_margin"
         android:src="@android:drawable/ic_input_delete"
-        android:onClick="backspace"/>
+        android:onClick="backspace" />-->
 
 </android.support.design.widget.CoordinatorLayout>
