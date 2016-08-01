@@ -9,6 +9,11 @@
     tools:context="com.jho.alana.calcif.MainActivity"
     tools:showIn="@layout/activity_main">
 
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewPager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        ></android.support.v4.view.ViewPager>
 
     <TextView
         android:layout_width="match_parent"
