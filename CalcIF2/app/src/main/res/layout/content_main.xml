@@ -9,7 +9,6 @@
     tools:context="com.jho.alana.calcif.MainActivity"
     tools:showIn="@layout/activity_main">
 
-
     <TextView
         android:layout_width="match_parent"
         android:layout_height="80dp"
@@ -18,40 +17,6 @@
         android:textSize="40dp"
         android:textAlignment="textEnd"
         android:background="@color/textcolor" />
-
-    <!--<TextView
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:id="@+id/tvPosfixa"
-        android:layout_below="@id/tvCalc"
-        android:text="@string/expressao"
-        android:textSize="25dp"
-        android:textColor="#000" />
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:id="@+id/tvExp"
-        android:layout_below="@id/tvPosfixa"
-        android:text="ABC+DE-"
-        android:textSize="22dp" />-->
-
-    <!--<TextView
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:id="@+id/tvResult"
-        android:layout_below="@id/tvExp"
-        android:text="Resultado"
-        android:textSize="25dp"
-        android:background="#dcdcdc"/>
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:id="@+id/tvResExp"
-        android:layout_below="@id/tvResult"
-        android:text="Resultado"
-        android:textSize="22dp"/>-->
 
     <Button
         android:layout_width="wrap_content"
@@ -87,7 +52,8 @@
         android:layout_alignTop="@+id/btnPorc"
         android:layout_toEndOf="@+id/btnPorc"
         android:background="@color/btncolor"
-        android:textColor="@color/textcolor" />
+        android:textColor="@color/textcolor"
+        android:onClick="backspace"/>
 
     <Button
         android:layout_width="80dp"
@@ -290,16 +256,6 @@
         android:textColor="@color/textcolor"
         android:onClick="addNumber"/>
 
-    <!--<Button
-        android:layout_width="264dp"
-        android:layout_height="70dp"
-        android:text="="
-        android:textSize="50dp"
-        android:id="@+id/btnResult"
-        android:layout_below="@id/btnParentLeft"
-        android:background="@color/btncolorop"
-        android:textColor="@color/textcolor" />-->
-
     <Button
         android:layout_width="80dp"
         android:layout_height="70dp"
@@ -310,6 +266,7 @@
         android:layout_below="@id/btnSum"
         android:background="@color/btncolorop"
         android:textColor="@color/textcolor"
-        android:onClick="addNumber"/>
+        android:onClick="addNumber" />
 
+    <!--</SlidingDrawer>-->
 </RelativeLayout>

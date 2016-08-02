@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/backgroundapp">
+
+    <!--<ViewFlipper
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/viewFlipper"
+        android:layout_gravity="center_horizontal" >-->
+
+        <TextView
+            android:id="@+id/tvExpOrigin"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:paddingTop="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:layout_marginRight="@dimen/activity_horizontal_margin"
+            android:text="Expressão original:"
+            android:textSize="30dp"
+            />
+
+        <TextView
+            android:id="@+id/tvFormatOrigin"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:layout_marginRight="@dimen/activity_horizontal_margin"
+            android:background="@color/textcolor"
+            android:layout_below="@id/tvExpOrigin"/>
+
+        <TextView
+            android:id="@+id/tvExpPosfixa"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:paddingTop="10dp"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:layout_marginRight="@dimen/activity_horizontal_margin"
+            android:text="Expressão posfixa:"
+            android:textSize="30dp"
+            android:layout_below="@+id/tvFormatOrigin"/>
+
+        <TextView
+            android:id="@+id/tvFormatPosfixa"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:layout_marginRight="@dimen/activity_horizontal_margin"
+            android:background="@color/textcolor"
+            android:layout_below="@id/tvExpPosfixa"/>
+
+    <!--</ViewFlipper>-->
+</RelativeLayout>
