@@ -1,23 +1,26 @@
 package com.jho.alana.calcif;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.Layout;
 import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
+    //private int[] layouts = {R.layout.content_main, R.layout.pager};
+    private static final int QTDPAGES = 2;
     ViewPager viewPager;
-    Pager adapter;
+    PagerAdapter adapter;
 
     TextView tvCalc;
     TextView tvExp;
@@ -40,9 +43,10 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        viewPager = (ViewPager) findViewById(R.id.viewPager);
-        adapter = new Pager(this);
-        viewPager.setAdapter(adapter);
+        //FragmentManager frag = getSupportFragmentManager();
+        //viewPager = (ViewPager) findViewById(R.id.viewPager);
+        //adapter = new Pager(this, QTDPAGES);
+        //viewPager.setAdapter(adapter);
 
         TextView tvC = (TextView) findViewById(R.id.tvCalc);
         //TextView tvE = (TextView) findViewById(R.id.tvExp);
@@ -50,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     //Método que mostra os caracteres digitados na view
-    public void addNumber(View view, int value) {
+    public void addNumber(View view) {
         number = ((TextView)view).getText().toString();
         tvCalc = ((TextView) findViewById(R.id.tvCalc));
         tvCalc.setText(tvCalc.getText() + number);
