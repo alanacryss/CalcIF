@@ -13,9 +13,11 @@
         <TextView
             android:id="@+id/tvExpOrigin"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_margin="@dimen/activity_horizontal_margin"
+            android:layout_height="60dp"
+            android:paddingTop="10dp"
             android:layout_marginTop="10dp"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:layout_marginRight="@dimen/activity_horizontal_margin"
             android:text="Expressão original:"
             android:textSize="30dp"
             />
@@ -24,15 +26,18 @@
             android:id="@+id/tvFormatOrigin"
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:layout_margin="@dimen/activity_horizontal_margin"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:layout_marginRight="@dimen/activity_horizontal_margin"
             android:background="@color/textcolor"
             android:layout_below="@id/tvExpOrigin"/>
 
         <TextView
             android:id="@+id/tvExpPosfixa"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_margin="@dimen/activity_horizontal_margin"
+            android:layout_height="60dp"
+            android:paddingTop="10dp"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:layout_marginRight="@dimen/activity_horizontal_margin"
             android:text="Expressão posfixa:"
             android:textSize="30dp"
             android:layout_below="@+id/tvFormatOrigin"/>
@@ -41,7 +46,8 @@
             android:id="@+id/tvFormatPosfixa"
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:layout_margin="@dimen/activity_horizontal_margin"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:layout_marginRight="@dimen/activity_horizontal_margin"
             android:background="@color/textcolor"
             android:layout_below="@id/tvExpPosfixa"/>
 

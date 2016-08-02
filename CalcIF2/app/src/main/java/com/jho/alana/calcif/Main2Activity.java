@@ -10,6 +10,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -18,10 +19,15 @@ import android.view.ViewGroup;
 
 import android.widget.TextView;
 
+import com.jho.alana.myStack.MyStack;
+
 public class Main2Activity extends AppCompatActivity {
+
+    MyStack myStack = new MyStack();
 
     TextView tvCalc;
     String number;
+    char operator;
 
     /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide
@@ -63,20 +69,8 @@ public class Main2Activity extends AppCompatActivity {
             }
         });
 
-    }
+        TextView tvCalc = (TextView) findViewById(R.id.tvCalc);
 
-    //Método que mostra os caracteres digitados na view
-    public void addNumber(View view) {
-        number = ((TextView)view).getText().toString();
-        tvCalc = ((TextView) findViewById(R.id.tvCalc));
-        tvCalc.setText(tvCalc.getText() + number);
-    }
-
-    //Método para apagar os caracteres da View
-    public void clearAll(View view) {
-        //String cls = ((TextView)view).getText().toString();
-        tvCalc = ((TextView) findViewById(R.id.tvCalc));
-        tvCalc.setText("");
     }
 
     @Override
@@ -130,9 +124,7 @@ public class Main2Activity extends AppCompatActivity {
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
             View rootView = inflater.inflate(R.layout.content_main, container, false);
-            //TextView textView = (TextView) rootView.findViewById(R.id.tvCalc);
 
-            //textView.setText(getString(R.string.section_format, getArguments().getInt(ARG_SECTION_NUMBER)));
             return rootView;
         }
     }
@@ -154,12 +146,6 @@ public class Main2Activity extends AppCompatActivity {
             /*return PlaceholderFragment.newInstance(position + 1);
         }
 
-        @Override
-        public int getCount() {
-            // Show 3 total pages.
-            return 2;
-        }
-
         @Override*/
         //public CharSequence getPageTitle(int position) {
             switch (position) {
@@ -177,4 +163,42 @@ public class Main2Activity extends AppCompatActivity {
             return 2;
         }
     }
+
+    //Método que mostra os caracteres digitados na view
+    public void addNumber(View view) {
+        number = ((TextView)view).getText().toString();
+        tvCalc = ((TextView) findViewById(R.id.tvCalc));
+        tvCalc.setText(tvCalc.getText() + number);
+    }
+
+    //Método para apagar um caractere
+    public void backspace(View view) {
+        number = tvCalc.getText().toString();
+        int length = number.length();
+
+        if (number.isEmpty()) {
+            tvCalc.setText("");
+        } else
+            tvCalc.setText(number.substring(0, length - 1));
+    }
+
+    //Método para apagar todos os caracteres da View
+    public void clearAll(View view) {
+        //String cls = ((TextView)view).getText().toString();
+        tvCalc = ((TextView) findViewById(R.id.tvCalc));
+        tvCalc.setText("");
+    }
+
+    //Método para dar push na pilha
+    /*public void makeCalc(View view) {
+
+        if (Double.parseDouble(number) >= 0 || Double.parseDouble(number) <= 9) {
+            if (operator == '+' || operator == '-' || operator == 'x' || operator == '/') {
+                myStack.push(Double.parseDouble(number), operator);
+
+                Log.d("stack", "myStack");
+
+            }
+        }
+    }*/
 }

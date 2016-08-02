@@ -52,7 +52,8 @@
         android:layout_alignTop="@+id/btnPorc"
         android:layout_toEndOf="@+id/btnPorc"
         android:background="@color/btncolor"
-        android:textColor="@color/textcolor" />
+        android:textColor="@color/textcolor"
+        android:onClick="backspace"/>
 
     <Button
         android:layout_width="80dp"
