@@ -5,273 +5,198 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.jho.alana.calcif.MainActivity"
+    tools:context="com.jho.alana.calcif.Main2Activity"
     tools:showIn="@layout/activity_main">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="110dp"
         android:id="@+id/tvCalc"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="10dp"
         android:layout_marginLeft="10dp"
-        android:layout_alignRight="@id/btnDel"
+        android:layout_marginRight="10dp"
         android:textSize="40dp"
+        android:textColor="#000"
         android:textAlignment="textEnd"
         android:background="@color/textcolor" />
 
     <Button
         android:layout_width="wrap_content"
-        android:layout_height="70dp"
         android:layout_alignParentLeft="true"
         android:layout_marginLeft="10dp"
+        android:layout_marginTop="@dimen/fab_margin"
         android:text="!"
         android:textSize="30dp"
         android:id="@+id/btnFat"
         android:layout_below="@+id/tvCalc"
         android:layout_alignParentStart="true"
-        android:background="@color/btncolor"
-        android:textColor="@color/textcolor"
-        android:onClick="addNumber"/>
+        style="@style/btnTheme"/>
 
     <Button
         android:layout_width="wrap_content"
-        android:layout_height="70dp"
         android:text="%"
-        android:textSize="30dp"
         android:id="@+id/btnPorc"
         android:layout_alignTop="@+id/btnFat"
         android:layout_toEndOf="@+id/btnFat"
-        android:background="@color/btncolor"
-        android:textColor="@color/textcolor"
-        android:onClick="addNumber"/>
+        style="@style/btnTheme"/>
 
     <Button
         android:layout_width="wrap_content"
-        android:layout_height="70dp"
         android:drawableRight="@android:drawable/ic_input_delete"
         android:paddingRight="30dp"
-        android:textSize="40dp"
         android:id="@+id/btnBack"
         android:layout_alignTop="@+id/btnPorc"
         android:layout_toEndOf="@+id/btnPorc"
-        android:background="@color/btncolor"
-        android:textColor="@color/textcolor"
-        android:onClick="backspace"/>
+        style="@style/btnTheme"/>
 
     <Button
         android:layout_width="80dp"
-        android:layout_height="70dp"
         android:text="C"
-        android:textSize="30dp"
         android:id="@+id/btnDel"
         android:layout_alignTop="@+id/btnBack"
         android:layout_toEndOf="@+id/btnBack"
-        android:background="@color/btncolor"
-        android:textColor="@color/textcolor"
-        android:onClick="clearAll"/>
+        style="@style/btnTheme"/>
 
     <Button
         android:layout_width="wrap_content"
-        android:layout_height="70dp"
         android:text="7"
-        android:textSize="30dp"
         android:layout_alignLeft="@id/btnFat"
         android:id="@+id/btn7"
         android:layout_below="@+id/btnFat"
-        android:background="@color/btncolor"
-        android:textColor="@color/textcolor"
-        android:onClick="addNumber"/>
+        style="@style/btnTheme"
+        android:onClick="onClick"
+        />
 
     <Button
         android:layout_width="wrap_content"
-        android:layout_height="70dp"
         android:text="8"
-        android:textSize="30dp"
         android:id="@+id/btn8"
         android:layout_alignTop="@+id/btn7"
         android:layout_toEndOf="@+id/btn7"
-        android:background="@color/btncolor"
-        android:textColor="@color/textcolor"
-        android:onClick="addNumber"/>
+        style="@style/btnTheme"/>
 
     <Button
         android:layout_width="wrap_content"
-        android:layout_height="70dp"
         android:text="9"
-        android:textSize="30dp"
         android:id="@+id/btn9"
         android:layout_alignTop="@+id/btn8"
         android:layout_toEndOf="@+id/btn8"
-        android:background="@color/btncolor"
-        android:textColor="@color/textcolor"
-        android:onClick="addNumber"/>
+        style="@style/btnTheme"/>
 
     <Button
         android:layout_width="wrap_content"
-        android:layout_height="70dp"
         android:text="4"
-        android:textSize="30dp"
         android:id="@+id/btn4"
         android:layout_alignLeft="@id/btnFat"
         android:layout_below="@id/btn7"
-        android:background="@color/btncolor"
-        android:textColor="@color/textcolor"
-        android:onClick="addNumber"/>
+        style="@style/btnTheme"/>
 
     <Button
         android:layout_width="wrap_content"
-        android:layout_height="70dp"
         android:text="5"
-        android:textSize="30dp"
         android:id="@+id/btn5"
         android:layout_alignTop="@+id/btn4"
         android:layout_toEndOf="@+id/btn4"
-        android:background="@color/btncolor"
-        android:textColor="@color/textcolor"
-        android:onClick="addNumber"/>
+        style="@style/btnTheme"/>
 
     <Button
         android:layout_width="wrap_content"
-        android:layout_height="70dp"
         android:text="6"
-        android:textSize="30dp"
         android:id="@+id/btn6"
         android:layout_alignTop="@+id/btn5"
         android:layout_toEndOf="@+id/btn5"
-        android:background="@color/btncolor"
-        android:textColor="@color/textcolor"
-        android:onClick="addNumber"/>
+        style="@style/btnTheme"/>
 
     <Button
         android:layout_width="wrap_content"
-        android:layout_height="70dp"
         android:text="1"
-        android:textSize="30dp"
         android:id="@+id/btn1"
         android:layout_alignLeft="@id/btnFat"
         android:layout_below="@id/btn4"
-        android:background="@color/btncolor"
-        android:textColor="@color/textcolor"
-        android:onClick="addNumber"/>
+        style="@style/btnTheme"/>
 
     <Button
         android:layout_width="wrap_content"
-        android:layout_height="70dp"
         android:text="2"
-        android:textSize="30dp"
         android:id="@+id/btn2"
         android:layout_alignTop="@+id/btn1"
         android:layout_toEndOf="@+id/btn1"
-        android:background="@color/btncolor"
-        android:textColor="@color/textcolor"
-        android:onClick="addNumber"/>
+        style="@style/btnTheme"/>
 
     <Button
         android:layout_width="wrap_content"
-        android:layout_height="70dp"
         android:text="3"
-        android:textSize="30dp"
         android:id="@+id/btn3"
         android:layout_alignTop="@+id/btn2"
         android:layout_toEndOf="@+id/btn2"
-        android:background="@color/btncolor"
-        android:textColor="@color/textcolor"
-        android:onClick="addNumber"/>
-
-    <!--<Button
-        android:layout_width="wrap_content"
-        android:layout_height="70dp"
-        android:text="("
-        android:textSize="30dp"
-        android:id="@+id/btnParentLeft"
-        android:layout_below="@id/btn1"
-        android:background="@color/btncolor"
-        android:textColor="@color/textcolor"
-        android:onClick="addNumber"/>-->
+        style="@style/btnTheme"/>
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="70dp"
         android:text="."
-        android:textSize="30dp"
-        android:layout_alignLeft="@id/btnFat"
         android:id="@+id/btnPont"
         android:layout_below="@id/btn1"
-        android:background="@color/btncolorop"
-        android:textColor="@color/textcolor"
-        android:onClick="addNumber" />
+        android:layout_alignLeft="@id/btnFat"
+        style="@style/btnOperationTheme"
+        android:layout_width="wrap_content"/>
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="70dp"
+        android:layout_width="180dp"
+        android:text="("
+        android:id="@+id/btnParentLeft"
+        android:layout_below="@id/btnPont"
+        android:layout_alignLeft="@id/btnFat"
+        style="@style/btnTheme"/>
+
+    <Button
         android:text="0"
-        android:textSize="30dp"
         android:id="@+id/btnZero"
-        android:layout_alignTop="@+id/btnPont"
-        android:layout_toEndOf="@+id/btnPont"
-        android:background="@color/btncolor"
-        android:textColor="@color/textcolor"
-        android:onClick="addNumber"/>
-
-    <Button
         android:layout_width="wrap_content"
-        android:layout_height="70dp"
-        android:text="="
-        android:textSize="30dp"
-        android:id="@+id/btnEqual"
-        android:layout_alignTop="@+id/btnZero"
-        android:layout_toEndOf="@+id/btnZero"
-        android:background="@color/btncolor"
-        android:textColor="@color/textcolor"
-        android:onClick="addNumber"/>
+        android:layout_toEndOf="@+id/btnPont"
+        android:layout_below="@id/btn2"
+        style="@style/btnTheme"/>
 
     <Button
-        android:layout_width="80dp"
-        android:layout_height="70dp"
+        android:text="="
+        android:id="@+id/btnEqual"
+        android:layout_width="wrap_content"
+        android:layout_below="@id/btn3"
+        android:layout_toEndOf="@+id/btnZero"
+        style="@style/btnTheme"/>
+
+    <Button
+        android:text=")"
+        android:id="@+id/btnParentRight"
+        android:layout_width="180dp"
+        android:layout_below="@id/btnEqual"
+        android:layout_toEndOf="@+id/btnZero"
+        style="@style/btnTheme"/>
+
+    <Button
         android:text="-"
-        android:textSize="30dp"
         android:id="@+id/btnSubt"
         android:layout_alignTop="@+id/btn3"
         android:layout_toEndOf="@+id/btn3"
-        android:background="@color/btncolorop"
-        android:textColor="@color/textcolor"
-        android:onClick="addNumber"/>
+        style="@style/btnOperationTheme"/>
 
     <Button
-        android:layout_width="80dp"
-        android:layout_height="70dp"
-        android:text="x"
-        android:textSize="20dp"
+        android:text="*"
         android:id="@+id/btnMult"
         android:layout_alignTop="@+id/btn6"
         android:layout_toEndOf="@+id/btn6"
-        android:background="@color/btncolorop"
-        android:textColor="@color/textcolor"
-        android:onClick="addNumber"/>
+        style="@style/btnOperationTheme"/>
 
     <Button
-        android:layout_width="80dp"
-        android:layout_height="70dp"
         android:text="/"
-        android:textSize="30dp"
         android:id="@+id/btnDiv"
         android:layout_alignTop="@+id/btn9"
         android:layout_toEndOf="@+id/btn9"
-        android:background="@color/btncolorop"
-        android:textColor="@color/textcolor"
-        android:onClick="addNumber"/>
+        style="@style/btnOperationTheme"/>
 
     <Button
-        android:layout_width="80dp"
-        android:layout_height="70dp"
         android:text="+"
-        android:textSize="25dp"
         android:id="@+id/btnSum"
-        android:layout_alignTop="@+id/btnEqual"
-        android:layout_toEndOf="@+id/btnEqual"
-        android:background="@color/btncolorop"
-        android:textColor="@color/textcolor"
-        android:onClick="addNumber"/>
+        style="@style/btnOperationTheme"
+        android:layout_below="@+id/btn3"
+        android:layout_toEndOf="@+id/btn3"/>
 
-    <!--</SlidingDrawer>-->
 </RelativeLayout>
