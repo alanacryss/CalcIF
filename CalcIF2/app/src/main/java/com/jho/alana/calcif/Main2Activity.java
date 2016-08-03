@@ -25,8 +25,8 @@ public class Main2Activity extends AppCompatActivity {
 
     MyStack myStack = new MyStack();
 
-    TextView tvCalc;
-    String number;
+    private TextView tvCalc;
+    private String expression = "";
     char operator;
 
     /**
@@ -51,6 +51,8 @@ public class Main2Activity extends AppCompatActivity {
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
@@ -59,18 +61,12 @@ public class Main2Activity extends AppCompatActivity {
         mViewPager = (ViewPager) findViewById(R.id.container);
         mViewPager.setAdapter(mSectionsPagerAdapter);
 
+        ViewGroup viewGroup = (ViewGroup) toolbar.getParent();
+        LayoutInflater inflater = getLayoutInflater();
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+        View view = inflater.inflate(R.layout.content_main, viewGroup, true);
 
-        TextView tvCalc = (TextView) findViewById(R.id.tvCalc);
-
+        tvCalc = (TextView) view.findViewById(R.id.tvCalc);
     }
 
     @Override
@@ -100,7 +96,7 @@ public class Main2Activity extends AppCompatActivity {
      */
     public static class PlaceholderFragment extends Fragment {
         /**
-         * The fragment argument representing the section number for this
+         * The fragment argument representing the section expression for this
          * fragment.
          */
         private static final String ARG_SECTION_NUMBER = "section_number";
@@ -110,7 +106,7 @@ public class Main2Activity extends AppCompatActivity {
 
         /**
          * Returns a new instance of this fragment for the given section
-         * number.
+         * expression.
          */
         public static PlaceholderFragment newInstance(int sectionNumber) {
             PlaceholderFragment fragment = new PlaceholderFragment();
@@ -124,6 +120,7 @@ public class Main2Activity extends AppCompatActivity {
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
             View rootView = inflater.inflate(R.layout.content_main, container, false);
+
 
             return rootView;
         }
@@ -165,21 +162,22 @@ public class Main2Activity extends AppCompatActivity {
     }
 
     //Método que mostra os caracteres digitados na view
-    public void addNumber(View view) {
-        number = ((TextView)view).getText().toString();
-        tvCalc = ((TextView) findViewById(R.id.tvCalc));
-        tvCalc.setText(tvCalc.getText() + number);
+    public void onClick(View view) {
+        expression += ((TextView)view).getText().toString();
+        Log.d("string", ((TextView)view).getText().toString());
+        //tvCalc.setText(((TextView) view).getText().toString());
+        tvCalc.setText(expression);
     }
 
     //Método para apagar um caractere
     public void backspace(View view) {
-        number = tvCalc.getText().toString();
-        int length = number.length();
+        expression = tvCalc.getText().toString();
+        int length = expression.length();
 
-        if (number.isEmpty()) {
+        if (expression.isEmpty()) {
             tvCalc.setText("");
         } else
-            tvCalc.setText(number.substring(0, length - 1));
+            tvCalc.setText(expression.substring(0, length - 1));
     }
 
     //Método para apagar todos os caracteres da View
@@ -192,9 +190,9 @@ public class Main2Activity extends AppCompatActivity {
     //Método para dar push na pilha
     /*public void makeCalc(View view) {
 
-        if (Double.parseDouble(number) >= 0 || Double.parseDouble(number) <= 9) {
+        if (Double.parseDouble(expression) >= 0 || Double.parseDouble(expression) <= 9) {
             if (operator == '+' || operator == '-' || operator == 'x' || operator == '/') {
-                myStack.push(Double.parseDouble(number), operator);
+                myStack.push(Double.parseDouble(expression), operator);
 
                 Log.d("stack", "myStack");
 
