@@ -4,16 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.jho.alana.calcif.MainActivity"
     tools:showIn="@layout/activity_main">
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="80dp"
+        android:layout_height="110dp"
         android:id="@+id/tvCalc"
-        android:editable="false"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="10dp"
+        android:layout_alignRight="@id/btnDel"
         android:textSize="40dp"
         android:textAlignment="textEnd"
         android:background="@color/textcolor" />
@@ -21,7 +22,9 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="70dp"
-        android:text="Fat"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="10dp"
+        android:text="!"
         android:textSize="30dp"
         android:id="@+id/btnFat"
         android:layout_below="@+id/tvCalc"
@@ -72,9 +75,9 @@
         android:layout_height="70dp"
         android:text="7"
         android:textSize="30dp"
+        android:layout_alignLeft="@id/btnFat"
         android:id="@+id/btn7"
         android:layout_below="@+id/btnFat"
-        android:layout_alignParentStart="true"
         android:background="@color/btncolor"
         android:textColor="@color/textcolor"
         android:onClick="addNumber"/>
@@ -109,6 +112,7 @@
         android:text="4"
         android:textSize="30dp"
         android:id="@+id/btn4"
+        android:layout_alignLeft="@id/btnFat"
         android:layout_below="@id/btn7"
         android:background="@color/btncolor"
         android:textColor="@color/textcolor"
@@ -144,6 +148,7 @@
         android:text="1"
         android:textSize="30dp"
         android:id="@+id/btn1"
+        android:layout_alignLeft="@id/btnFat"
         android:layout_below="@id/btn4"
         android:background="@color/btncolor"
         android:textColor="@color/textcolor"
@@ -173,7 +178,7 @@
         android:textColor="@color/textcolor"
         android:onClick="addNumber"/>
 
-    <Button
+    <!--<Button
         android:layout_width="wrap_content"
         android:layout_height="70dp"
         android:text="("
@@ -182,7 +187,19 @@
         android:layout_below="@id/btn1"
         android:background="@color/btncolor"
         android:textColor="@color/textcolor"
-        android:onClick="addNumber"/>
+        android:onClick="addNumber"/>-->
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="70dp"
+        android:text="."
+        android:textSize="30dp"
+        android:layout_alignLeft="@id/btnFat"
+        android:id="@+id/btnPont"
+        android:layout_below="@id/btn1"
+        android:background="@color/btncolorop"
+        android:textColor="@color/textcolor"
+        android:onClick="addNumber" />
 
     <Button
         android:layout_width="wrap_content"
@@ -190,8 +207,8 @@
         android:text="0"
         android:textSize="30dp"
         android:id="@+id/btnZero"
-        android:layout_alignTop="@+id/btnParentLeft"
-        android:layout_toEndOf="@+id/btnParentLeft"
+        android:layout_alignTop="@+id/btnPont"
+        android:layout_toEndOf="@+id/btnPont"
         android:background="@color/btncolor"
         android:textColor="@color/textcolor"
         android:onClick="addNumber"/>
@@ -199,9 +216,9 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="70dp"
-        android:text=")"
+        android:text="="
         android:textSize="30dp"
-        android:id="@+id/btnParentRight"
+        android:id="@+id/btnEqual"
         android:layout_alignTop="@+id/btnZero"
         android:layout_toEndOf="@+id/btnZero"
         android:background="@color/btncolor"
@@ -250,23 +267,11 @@
         android:text="+"
         android:textSize="25dp"
         android:id="@+id/btnSum"
-        android:layout_alignTop="@+id/btnParentRight"
-        android:layout_toEndOf="@+id/btnParentRight"
+        android:layout_alignTop="@+id/btnEqual"
+        android:layout_toEndOf="@+id/btnEqual"
         android:background="@color/btncolorop"
         android:textColor="@color/textcolor"
         android:onClick="addNumber"/>
-
-    <Button
-        android:layout_width="80dp"
-        android:layout_height="70dp"
-        android:text="."
-        android:textSize="30dp"
-        android:id="@+id/btnPont"
-        android:layout_marginLeft="264dp"
-        android:layout_below="@id/btnSum"
-        android:background="@color/btncolorop"
-        android:textColor="@color/textcolor"
-        android:onClick="addNumber" />
 
     <!--</SlidingDrawer>-->
 </RelativeLayout>

@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/backgroundapp">
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/backgroundapp"
+                android:orientation="vertical">
 
     <!--<ViewFlipper
         android:layout_width="match_parent"
@@ -10,46 +11,79 @@
         android:id="@+id/viewFlipper"
         android:layout_gravity="center_horizontal" >-->
 
-        <TextView
-            android:id="@+id/tvExpOrigin"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:paddingTop="10dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginLeft="@dimen/activity_horizontal_margin"
-            android:layout_marginRight="@dimen/activity_horizontal_margin"
-            android:text="Expressão original:"
-            android:textSize="30dp"
-            />
+    <TextView
+        android:id="@+id/tvExpOrigin"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
+        android:layout_marginTop="10dp"
+        android:paddingTop="10dp"
+        android:text="Expressão original:"
+        android:textSize="30dp"
+        />
 
-        <TextView
-            android:id="@+id/tvFormatOrigin"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_marginLeft="@dimen/activity_horizontal_margin"
-            android:layout_marginRight="@dimen/activity_horizontal_margin"
-            android:background="@color/textcolor"
-            android:layout_below="@id/tvExpOrigin"/>
+    <TextView
+        android:id="@+id/tvFormatOrigin"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_below="@id/tvExpOrigin"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
+        android:background="@color/textcolor"/>
 
-        <TextView
-            android:id="@+id/tvExpPosfixa"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:paddingTop="10dp"
-            android:layout_marginLeft="@dimen/activity_horizontal_margin"
-            android:layout_marginRight="@dimen/activity_horizontal_margin"
-            android:text="Expressão posfixa:"
-            android:textSize="30dp"
-            android:layout_below="@+id/tvFormatOrigin"/>
+    <TextView
+        android:id="@+id/tvExpPosfixa"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_below="@+id/tvFormatOrigin"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="10dp"
+        android:text="Expressão posfixa:"
+        android:textSize="30dp"/>
 
-        <TextView
-            android:id="@+id/tvFormatPosfixa"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_marginLeft="@dimen/activity_horizontal_margin"
-            android:layout_marginRight="@dimen/activity_horizontal_margin"
-            android:background="@color/textcolor"
-            android:layout_below="@id/tvExpPosfixa"/>
+    <TextView
+        android:id="@+id/tvFormatPosfixa"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_below="@id/tvExpPosfixa"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
+        android:background="@color/textcolor"/>
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_below="@id/tvFormatPosfixa"
+        android:layout_marginTop="@dimen/fab_margin"
+        android:id="@+id/viewOne"
+        android:background="#000"
+        android:layout_height="1dip"/>
+
+    <Button
+        android:id="@+id/btnParentLeft"
+        android:layout_width="wrap_content"
+        android:layout_height="70dp"
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/viewOne"
+        android:background="@color/btncolor"
+        android:onClick="addNumber"
+        android:text="("
+        android:textColor="@color/textcolor"
+        android:textSize="30dp"/>
+
+    <Button
+        android:id="@+id/btnParentRight"
+        android:layout_width="wrap_content"
+        android:layout_height="70dp"
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/viewOne"
+        android:layout_toEndOf="@id/btnParentLeft"
+        android:background="@color/btncolor"
+        android:onClick="addNumber"
+        android:text=")"
+        android:textColor="@color/textcolor"
+        android:textSize="30dp"/>
 
     <!--</ViewFlipper>-->
 </RelativeLayout>
