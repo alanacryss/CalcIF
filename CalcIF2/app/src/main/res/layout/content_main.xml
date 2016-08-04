@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
 
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.jho.alana.calcif.Main2Activity"
+    tools:context="com.jho.alana.calcif.Main2Activity$PlaceholderFragment"
     tools:showIn="@layout/activity_main">
 
     <TextView
@@ -16,7 +16,6 @@
         android:editable="false"
         android:textSize="40dp"
         android:textColor="#000"
-        android:text="ihull"
         android:textAlignment="textEnd"
         android:background="@color/textcolor" />
 
@@ -60,8 +59,7 @@
         android:layout_below="@+id/btnFat"
         android:layout_alignParentStart="true"
         style="@style/btnTheme"
-        android:onClick="onClick"
-        />
+        android:onClick="onClick"/>
 
     <Button
         android:layout_width="wrap_content"
@@ -69,7 +67,8 @@
         android:id="@+id/btn8"
         android:layout_alignTop="@+id/btn7"
         android:layout_toEndOf="@+id/btn7"
-        style="@style/btnTheme"/>
+        style="@style/btnTheme"
+        android:onClick="onClick"/>
 
     <Button
         android:layout_width="wrap_content"
@@ -77,14 +76,16 @@
         android:id="@+id/btn9"
         android:layout_alignTop="@+id/btn8"
         android:layout_toEndOf="@+id/btn8"
-        style="@style/btnTheme"/>
+        style="@style/btnTheme"
+        android:onClick="onClick"/>
 
     <Button
         android:layout_width="wrap_content"
         android:text="4"
         android:id="@+id/btn4"
         android:layout_below="@id/btn7"
-        style="@style/btnTheme"/>
+        style="@style/btnTheme"
+        android:onClick="onClick"/>
 
     <Button
         android:layout_width="wrap_content"
@@ -92,7 +93,8 @@
         android:id="@+id/btn5"
         android:layout_alignTop="@+id/btn4"
         android:layout_toEndOf="@+id/btn4"
-        style="@style/btnTheme"/>
+        style="@style/btnTheme"
+        android:onClick="onClick"/>
 
     <Button
         android:layout_width="wrap_content"
@@ -107,7 +109,8 @@
         android:text="1"
         android:id="@+id/btn1"
         android:layout_below="@id/btn4"
-        style="@style/btnTheme"/>
+        style="@style/btnTheme"
+        android:onClick="onClick"/>
 
     <Button
         android:layout_width="wrap_content"
@@ -115,7 +118,8 @@
         android:id="@+id/btn2"
         android:layout_alignTop="@+id/btn1"
         android:layout_toEndOf="@+id/btn1"
-        style="@style/btnTheme"/>
+        style="@style/btnTheme"
+        android:onClick="onClick"/>
 
     <Button
         android:layout_width="wrap_content"
@@ -123,14 +127,16 @@
         android:id="@+id/btn3"
         android:layout_alignTop="@+id/btn2"
         android:layout_toEndOf="@+id/btn2"
-        style="@style/btnTheme"/>
+        style="@style/btnTheme"
+        android:onClick="onClick"/>
 
     <Button
         android:layout_width="wrap_content"
         android:text="("
         android:id="@+id/btnParentLeft"
         android:layout_below="@id/btn1"
-        style="@style/btnTheme"/>
+        style="@style/btnTheme"
+        android:onClick="onClick"/>
 
     <Button
         android:layout_width="wrap_content"
@@ -138,7 +144,8 @@
         android:id="@+id/btnZero"
         android:layout_alignTop="@+id/btnParentLeft"
         android:layout_toEndOf="@+id/btnParentLeft"
-        style="@style/btnTheme"/>
+        style="@style/btnTheme"
+        android:onClick="onClick"/>
 
     <Button
         android:layout_width="wrap_content"
@@ -146,41 +153,47 @@
         android:id="@+id/btnParentRight"
         android:layout_alignTop="@+id/btnZero"
         android:layout_toEndOf="@+id/btnZero"
-        style="@style/btnTheme"/>
+        style="@style/btnTheme"
+        android:onClick="onClick"/>
 
     <Button
         android:text="-"
         android:id="@+id/btnSubt"
         android:layout_alignTop="@+id/btn3"
         android:layout_toEndOf="@+id/btn3"
-        style="@style/btnOperationTheme"/>
+        style="@style/btnOperationTheme"
+        android:onClick="onClick"/>
 
     <Button
         android:text="*"
         android:id="@+id/btnMult"
         android:layout_alignTop="@+id/btn6"
         android:layout_toEndOf="@+id/btn6"
-        style="@style/btnOperationTheme"/>
+        style="@style/btnOperationTheme"
+        android:onClick="onClick"/>
 
     <Button
         android:text="/"
         android:id="@+id/btnDiv"
         android:layout_alignTop="@+id/btn9"
         android:layout_toEndOf="@+id/btn9"
-        style="@style/btnOperationTheme"/>
+        style="@style/btnOperationTheme"
+        android:onClick="onClick"/>
 
     <Button
         android:text="+"
         android:id="@+id/btnSum"
         android:layout_alignTop="@+id/btnParentRight"
         android:layout_toEndOf="@+id/btnParentRight"
-        style="@style/btnOperationTheme"/>
+        style="@style/btnOperationTheme"
+        android:onClick="onClick"/>
 
     <Button
         android:text="."
         android:id="@+id/btnPont"
         android:layout_marginLeft="264dp"
         android:layout_below="@id/btnSum"
-        style="@style/btnOperationTheme"/>
+        style="@style/btnOperationTheme"
+        android:onClick="onClick"/>
 
 </RelativeLayout>

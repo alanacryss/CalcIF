@@ -21,12 +21,14 @@ import android.widget.TextView;
 
 import com.jho.alana.myStack.MyStack;
 
+import org.w3c.dom.Text;
+
 public class Main2Activity extends AppCompatActivity {
 
     MyStack myStack = new MyStack();
 
     private TextView tvCalc;
-    private String expression = "";
+    private String expression;
     char operator;
 
     /**
@@ -66,7 +68,7 @@ public class Main2Activity extends AppCompatActivity {
 
         View view = inflater.inflate(R.layout.content_main, viewGroup, true);
 
-        tvCalc = (TextView) view.findViewById(R.id.tvCalc);
+        tvCalc = (TextView) findViewById(R.id.tvCalc);
     }
 
     @Override
@@ -120,8 +122,6 @@ public class Main2Activity extends AppCompatActivity {
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
             View rootView = inflater.inflate(R.layout.content_main, container, false);
-
-
             return rootView;
         }
     }

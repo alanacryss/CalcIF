@@ -22,7 +22,7 @@
         <item name="android:textSize">30dp</item>
         <item name="android:layout_height">70dp</item>
         <item name="android:textColor">@color/textcolor</item>
-        <!--<item name="android:onClick">onClick</item>>-->
+        <!--<item name="android:onClick">onClick()</item>-->
     </style>
 
     <style name="btnOperationTheme" parent="btnTheme">
