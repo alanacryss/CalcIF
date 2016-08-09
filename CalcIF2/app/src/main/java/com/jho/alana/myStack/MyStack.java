@@ -5,7 +5,7 @@ import model.Node;
 /**
  * Created by alana on 26/07/16.
  */
-public class MyStack {
+public class MyStack<E> {
 
     Node prox = null;
     Node pt;
@@ -14,8 +14,8 @@ public class MyStack {
 
     }
 
-    public void push(double value, char operator) {
-        Node node = new Node(value, operator);
+    public void push(E value) {
+        Node node = new Node(value);
 
         if (prox == null) {
             node.setProx(null);
@@ -34,6 +34,10 @@ public class MyStack {
         pt = pt.getProx();
 
         return rec;
+    }
+
+    public E top(){
+        return pt != null ? (E) pt.getValue() : null;
     }
 
     public boolean isEmpty() {
