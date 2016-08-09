@@ -66,9 +66,21 @@ public class Main2Activity extends AppCompatActivity {
         ViewGroup viewGroup = (ViewGroup) toolbar.getParent();
         LayoutInflater inflater = getLayoutInflater();
 
-        View view = inflater.inflate(R.layout.content_main, viewGroup, true);
+        /*FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
+            }
+        });*/
 
+<<<<<<< HEAD
         tvCalc = (TextView) findViewById(R.id.tvCalc);
+=======
+        View view = inflater.inflate(R.layout.content_main, viewGroup, true);
+        tvCalc = (TextView) view.findViewById(R.id.tvCalc);
+>>>>>>> fc83f42019b3cbdbdba394d15379281c8888a8bf
     }
 
     @Override
