@@ -1,10 +1,12 @@
-package com.jho.alana.calcif;
+package com.jho.alana.fragments;
 
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.jho.alana.calcif.R;
 
 /**
  * Created by alana on 31/07/16.

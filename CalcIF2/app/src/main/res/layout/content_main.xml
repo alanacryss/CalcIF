@@ -10,7 +10,7 @@
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="110dp"
+        android:layout_height="90dp"
         android:id="@+id/tvCalc"
         android:layout_marginTop="10dp"
         android:layout_marginLeft="10dp"
@@ -18,6 +18,8 @@
         android:textSize="40dp"
         android:textColor="#000"
         android:textAlignment="textEnd"
+        android:clickable="true"
+        android:onClick="getScreen"
         android:background="@color/textcolor" />
 
     <Button
@@ -28,8 +30,9 @@
         android:text="!"
         android:textSize="30dp"
         android:id="@+id/btnFat"
-        android:layout_below="@+id/tvCalc"
+        android:layout_below="@id/tvCalc"
         android:layout_alignParentStart="true"
+        android:onClick="onClick"
         style="@style/btnTheme"/>
 
     <Button
@@ -38,6 +41,7 @@
         android:id="@+id/btnPorc"
         android:layout_alignTop="@+id/btnFat"
         android:layout_toEndOf="@+id/btnFat"
+        android:onClick="onClick"
         style="@style/btnTheme"/>
 
     <Button
@@ -47,14 +51,16 @@
         android:id="@+id/btnBack"
         android:layout_alignTop="@+id/btnPorc"
         android:layout_toEndOf="@+id/btnPorc"
+        android:onClick="onClick"
         style="@style/btnTheme"/>
 
     <Button
         android:layout_width="80dp"
         android:text="C"
         android:id="@+id/btnDel"
-        android:layout_alignTop="@+id/btnBack"
-        android:layout_toEndOf="@+id/btnBack"
+        android:layout_alignTop="@id/btnBack"
+        android:layout_toEndOf="@id/btnBack"
+        android:onClick="onClick"
         style="@style/btnTheme"/>
 
     <Button
@@ -108,6 +114,7 @@
         android:id="@+id/btn6"
         android:layout_alignTop="@+id/btn5"
         android:layout_toEndOf="@+id/btn5"
+        android:onClick="onClick"
         style="@style/btnTheme"/>
 
     <Button
@@ -140,46 +147,37 @@
     <Button
         android:text="."
         android:id="@+id/btnPont"
+        android:layout_width="wrap_content"
         android:layout_below="@id/btn1"
         android:layout_alignLeft="@id/btnFat"
         style="@style/btnOperationTheme"
-        android:layout_width="wrap_content"/>
+        android:onClick="onClick"/>
 
     <Button
         android:layout_width="180dp"
         android:text="("
         android:id="@+id/btnParentLeft"
-<<<<<<< HEAD
-        android:layout_below="@id/btn1"
-        style="@style/btnTheme"
-        android:onClick="onClick"/>
-=======
         android:layout_below="@id/btnPont"
         android:layout_alignLeft="@id/btnFat"
-        style="@style/btnTheme"/>
->>>>>>> fc83f42019b3cbdbdba394d15379281c8888a8bf
+        style="@style/btnTheme"
+        android:onClick="onClick"/>
 
     <Button
         android:text="0"
         android:id="@+id/btnZero"
-<<<<<<< HEAD
-        android:layout_alignTop="@+id/btnParentLeft"
-        android:layout_toEndOf="@+id/btnParentLeft"
-        style="@style/btnTheme"
-        android:onClick="onClick"/>
-=======
         android:layout_width="wrap_content"
         android:layout_toEndOf="@+id/btnPont"
         android:layout_below="@id/btn2"
-        style="@style/btnTheme"/>
->>>>>>> fc83f42019b3cbdbdba394d15379281c8888a8bf
+        style="@style/btnTheme"
+        android:onClick="onClick"/>
 
     <Button
         android:text="="
         android:id="@+id/btnEqual"
         android:layout_width="wrap_content"
         android:layout_below="@id/btn3"
-        android:layout_toEndOf="@+id/btnZero"
+        android:layout_toEndOf="@id/btnZero"
+        android:onClick="onClick"
         style="@style/btnTheme"/>
 
     <Button
@@ -187,6 +185,7 @@
         android:id="@+id/btnParentRight"
         android:layout_width="180dp"
         android:layout_below="@id/btnEqual"
+        android:layout_alignRight="@id/btnDel"
         android:layout_toEndOf="@+id/btnZero"
         style="@style/btnTheme"
         android:onClick="onClick"/>
@@ -218,23 +217,10 @@
     <Button
         android:text="+"
         android:id="@+id/btnSum"
-<<<<<<< HEAD
-        android:layout_alignTop="@+id/btnParentRight"
-        android:layout_toEndOf="@+id/btnParentRight"
+        android:layout_below="@id/btn3"
         style="@style/btnOperationTheme"
+        android:layout_toEndOf="@id/btn3"
         android:onClick="onClick"/>
 
-    <Button
-        android:text="."
-        android:id="@+id/btnPont"
-        android:layout_marginLeft="264dp"
-        android:layout_below="@id/btnSum"
-        style="@style/btnOperationTheme"
-        android:onClick="onClick"/>
-=======
-        style="@style/btnOperationTheme"
-        android:layout_below="@+id/btn3"
-        android:layout_toEndOf="@+id/btn3"/>
->>>>>>> fc83f42019b3cbdbdba394d15379281c8888a8bf
 
 </RelativeLayout>

@@ -3,30 +3,30 @@ package model;
 /**
  * Created by alana on 02/08/16.
  */
-public class Node {
+public class Node<E> {
 
-    private double value;
-    private char operator;
+    private E value;
+    //private char operator;
     private Node prox;
 
-    public Node(double value, char operator) {
-        this.operator = operator;
+    public Node(E value) {
+        //this.operator = operator;
         this.value = value;
     }
 
-    public char getOperator() {
+    /*public char getOperator() {
         return operator;
-    }
+    }*/
 
-    public void setOperator(char operator) {
+    /*public void setOperator(char operator) {
         this.operator = operator;
-    }
+    }*/
 
-    public double getValue() {
+    public E getValue() {
         return value;
     }
 
-    public void setValue(double value) {
+    public void setValue(E value) {
         this.value = value;
     }
 
