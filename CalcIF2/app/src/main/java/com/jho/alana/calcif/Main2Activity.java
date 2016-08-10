@@ -1,5 +1,6 @@
 package com.jho.alana.calcif;
 
+import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
@@ -26,6 +27,7 @@ public class Main2Activity extends AppCompatActivity{
 
   //MyStack infixStack = new MyStack();
   InfixToPosfix infixToPosfix = new InfixToPosfix();
+  Context context;
 
   private TextView tvCalc, tvPosfix, tvInfix;
   private String expression = "";
@@ -131,20 +133,20 @@ public class Main2Activity extends AppCompatActivity{
         equality(view);
         break;
       default:
+        tvCalc = (TextView) findViewById(R.id.tvCalc);
         expression += ((TextView) view).getText().toString();
         tvCalc.setText(expression);
         break;
     }
-
   }
 
   /**
    * Gambiarra pura para poder pegar a instância do TextView. Para isso, deve-se dar um clique nesse
    * textView antes de qualquer outra coisa...
    */
-  public void getScreen(View view){
-    tvCalc = (TextView) view;
-  }
+//  public void getScreen(View view){
+   // tvCalc = (TextView) view;
+  //}
 
   //Método para apagar um caractere
   public void backspace(View view){
@@ -175,8 +177,9 @@ public class Main2Activity extends AppCompatActivity{
 
     tvPosfix = (TextView) findViewById(R.id.tvFormatPosfixa);
     tvInfix = (TextView) findViewById(R.id.tvFormatOrigin);
-    
-    posfix = infixToPosfix.infixToPosfix(expression);
+
+    context = getApplicationContext();
+    posfix = infixToPosfix.infixToPosfix(expression, context);
     tvInfix.setText(expression);
     tvPosfix.setText(posfix);
   }

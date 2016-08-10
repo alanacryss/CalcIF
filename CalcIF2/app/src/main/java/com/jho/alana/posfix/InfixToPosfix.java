@@ -1,5 +1,9 @@
 package com.jho.alana.posfix;
 
+import android.content.Context;
+import android.widget.TextView;
+import android.widget.Toast;
+
 import java.util.Stack;
 
 /**
@@ -49,14 +53,23 @@ public class InfixToPosfix {
         return summit;
     }
 
-    public String infixToPosfix(String expressao){
+    public String infixToPosfix(String expression, Context context){
 
         String res = "";
         char caracter;
         int priority = 0;
 
-        for(int i = 0; i < expressao.length(); i++){
-            caracter = expressao.charAt(i);
+        /*if (expression.indexOf("(") != expression.indexOf(")")) {
+            Toast.makeText(context, "Expressão inválida!", Toast.LENGTH_SHORT).show();
+        }*/
+
+        for(int i = 0; i < expression.length(); i++) {
+            caracter = expression.charAt(i);
+
+            if (countOcurrence(expression)){
+                Toast.makeText(context, "Expressão inválida!", Toast.LENGTH_SHORT).show();
+            }
+
             if(operating(caracter))
                 res += caracter;
             else if(operator(caracter)){
@@ -81,5 +94,27 @@ public class InfixToPosfix {
             res += stack.pop().toString();
 
         return res;
+    }
+
+    public boolean countOcurrence(String expression) {
+
+        char exp[] = {};
+        int countLeft = 0;
+        int countRight = 0;
+
+        for (int i = 0; i < expression.length(); i++) {
+            exp = expression.toCharArray();
+
+            if (exp[i] == '(') {
+                countLeft++;
+            } else if (exp[i] == ')') {
+                countRight++;
+            }
+        }
+
+        if (countLeft != countRight) {
+            return true;
+        }
+        return false;
     }
 }
