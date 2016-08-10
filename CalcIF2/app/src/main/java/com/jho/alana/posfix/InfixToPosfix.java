@@ -74,8 +74,7 @@ public class InfixToPosfix {
                 res += caracter;
             else if(operator(caracter)){
                 priority = getPriority(caracter);
-                // o método .peek retorna um object, porém o método que eu criei obterPrioridade aceita char no parametro...
-                //como dizer que o objeto retornado é char, tentei casting mas não deu certo.
+
                 while((!stack.isEmpty()) && (getPriority(top()) >= priority))
                     res += stack.pop();
                 stack.push(caracter);
