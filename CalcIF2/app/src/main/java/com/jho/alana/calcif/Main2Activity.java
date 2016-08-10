@@ -32,7 +32,7 @@ public class Main2Activity extends AppCompatActivity{
   private TextView tvCalc, tvPosfix, tvInfix;
   private String expression = "";
   private String posfix = "";
-
+  private boolean isFirst = true;
   /**
    * The {@link android.support.v4.view.PagerAdapter} that will provide fragments for each of the
    * sections. We use a {@link FragmentPagerAdapter} derivative, which will keep every loaded
@@ -120,6 +120,12 @@ public class Main2Activity extends AppCompatActivity{
   //Método que mostra os caracteres digitados na view
   public void onClick(View view){
 
+
+    if (isFirst) {
+      tvCalc = (TextView) findViewById(R.id.tvCalc);
+      isFirst = !isFirst;
+    }
+
     switch(view.getId()){
 
       case R.id.btnBack:
@@ -133,7 +139,6 @@ public class Main2Activity extends AppCompatActivity{
         equality(view);
         break;
       default:
-        tvCalc = (TextView) findViewById(R.id.tvCalc);
         expression += ((TextView) view).getText().toString();
         tvCalc.setText(expression);
         break;
