@@ -68,7 +68,9 @@ public class InfixToPosfix {
 
             if (countOcurrence(expression)){
                 Toast.makeText(context, "Expressão inválida!", Toast.LENGTH_SHORT).show();
-            }
+            } else if (verifyParent(expression))
+                Toast.makeText(context, "Expressão inválida!", Toast.LENGTH_SHORT).show();
+
 
             if(operating(caracter))
                 res += caracter;
@@ -114,6 +116,30 @@ public class InfixToPosfix {
         if (countLeft != countRight) {
             return true;
         }
+        return false;
+    }
+
+    public boolean verifyParent(String expression) {
+
+        char exp[] = {};
+        String operators = "*/(";
+        String numbers = "1234567890";
+
+        for (int i = 0; i < expression.length(); i++) {
+            exp = expression.toCharArray();
+
+            if (i == 0 && exp[i] == '(')
+                return false;
+
+            if (exp[i] == '(') {
+
+                if (exp[i - 1] != operators.charAt(i) || exp[i + 1] != numbers.charAt(i)) {
+                    return true;
+                }
+            } else
+                return false;
+        }
+
         return false;
     }
 }
