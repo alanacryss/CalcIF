@@ -186,7 +186,7 @@
         android:layout_width="180dp"
         android:layout_below="@id/btnEqual"
         android:layout_alignRight="@id/btnDel"
-        android:layout_toEndOf="@+id/btnZero"
+        android:layout_toEndOf="@+id/btnParentLeft"
         style="@style/btnTheme"
         android:onClick="onClick"/>
 

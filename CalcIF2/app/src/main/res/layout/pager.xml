@@ -19,7 +19,7 @@
         android:layout_marginRight="@dimen/activity_horizontal_margin"
         android:layout_marginTop="10dp"
         android:paddingTop="10dp"
-        android:text="Expressão original:"
+        android:text="Expressão infixa:"
         android:textSize="30dp"
         />
 
@@ -30,6 +30,7 @@
         android:layout_below="@id/tvExpOrigin"
         android:layout_marginLeft="@dimen/activity_horizontal_margin"
         android:layout_marginRight="@dimen/activity_horizontal_margin"
+        android:textSize="25dp"
         android:background="@color/textcolor"/>
 
     <TextView
@@ -50,6 +51,7 @@
         android:layout_below="@id/tvExpPosfixa"
         android:layout_marginLeft="@dimen/activity_horizontal_margin"
         android:layout_marginRight="@dimen/activity_horizontal_margin"
+        android:textSize="25dp"
         android:background="@color/textcolor"/>
 
     <View
@@ -59,31 +61,6 @@
         android:id="@+id/viewOne"
         android:background="#000"
         android:layout_height="1dip"/>
-
-    <Button
-        android:id="@+id/btnParentLeft"
-        android:layout_width="wrap_content"
-        android:layout_height="70dp"
-        android:layout_marginTop="10dp"
-        android:layout_below="@id/viewOne"
-        android:background="@color/btncolor"
-        android:onClick="addNumber"
-        android:text="("
-        android:textColor="@color/textcolor"
-        android:textSize="30dp"/>
-
-    <Button
-        android:id="@+id/btnParentRight"
-        android:layout_width="wrap_content"
-        android:layout_height="70dp"
-        android:layout_marginTop="10dp"
-        android:layout_below="@id/viewOne"
-        android:layout_toEndOf="@id/btnParentLeft"
-        android:background="@color/btncolor"
-        android:onClick="addNumber"
-        android:text=")"
-        android:textColor="@color/textcolor"
-        android:textSize="30dp"/>
 
     <!--</ViewFlipper>-->
 </RelativeLayout>

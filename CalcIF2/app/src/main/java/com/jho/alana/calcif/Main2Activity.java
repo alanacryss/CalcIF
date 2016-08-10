@@ -18,15 +18,18 @@ import android.widget.Toast;
 import com.jho.alana.fragments.CalcFragmentl;
 import com.jho.alana.fragments.Pager;
 import com.jho.alana.myStack.MyStack;
+import com.jho.alana.posfix.InfixToPosfix;
 
 import org.w3c.dom.Text;
 
 public class Main2Activity extends AppCompatActivity{
 
-  MyStack infixStack = new MyStack();
+  //MyStack infixStack = new MyStack();
+  InfixToPosfix infixToPosfix = new InfixToPosfix();
 
-  private TextView tvCalc;
+  private TextView tvCalc, tvPosfix, tvInfix;
   private String expression = "";
+  private String posfix = "";
 
   /**
    * The {@link android.support.v4.view.PagerAdapter} that will provide fragments for each of the
@@ -125,6 +128,7 @@ public class Main2Activity extends AppCompatActivity{
         break;
       case R.id.btnEqual:
         makeCalc(view);
+        equality(view);
         break;
       default:
         expression += ((TextView) view).getText().toString();
@@ -164,5 +168,16 @@ public class Main2Activity extends AppCompatActivity{
   //Método para dar push na pilha
   public void makeCalc(View view){
 
+  }
+
+  //Método que pega as expressões infixa e posfixa e adiciona nas views
+  public void equality(View view) {
+
+    tvPosfix = (TextView) findViewById(R.id.tvFormatPosfixa);
+    tvInfix = (TextView) findViewById(R.id.tvFormatOrigin);
+    
+    posfix = infixToPosfix.infixToPosfix(expression);
+    tvInfix.setText(expression);
+    tvPosfix.setText(posfix);
   }
 }
