@@ -196,23 +196,32 @@ public class Main2Activity extends AppCompatActivity{
 
     stack = new Stack();
     String[] term = posfix.split("");
+    Double a;
+    Double b;
 
     for(String s : term){
 
       if(s.equals("+"))
         stack.push((Double) stack.pop() + (Double) stack.pop());
-      else if(s.equals("-"))
-        stack.push((Double) stack.pop() - (Double) stack.pop());
+      else if(s.equals("-")){
+        a = (Double) stack.pop();
+        b = (Double) stack.pop();
+        stack.push(b - a);
+      }
       else if(s.equals("*"))
         stack.push((Double) stack.pop() * (Double) stack.pop());
-      else if(s.equals("/"))
-        stack.push((Double) stack.pop() / (Double) stack.pop());
+      else if(s.equals("/")){
+        a = (Double) stack.pop();
+        b = (Double) stack.pop();
+        stack.push(b / a);
+      }
       else if(!s.equals(""))
         stack.push(Double.parseDouble(s));
 
     }
 
     expression = String.valueOf(stack.pop());
+    Log.d("exp", expression);
     print(tvCalc, expression);
     setTextSize(false);
 
@@ -287,7 +296,7 @@ public class Main2Activity extends AppCompatActivity{
       print(tvCalc, fat(Double.parseDouble(number[0])) + "");
 
     }catch(Exception e){
-      print(tvCalc, e.getMessage());
+      print(tvCalc, "Error!");
     }
   }
 
