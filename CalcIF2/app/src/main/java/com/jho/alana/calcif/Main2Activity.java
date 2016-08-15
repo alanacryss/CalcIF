@@ -9,6 +9,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -23,16 +24,22 @@ import com.jho.alana.posfix.InfixToPosfix;
 
 import org.w3c.dom.Text;
 
+import java.util.Stack;
+
 public class Main2Activity extends AppCompatActivity{
 
   //MyStack infixStack = new MyStack();
-  InfixToPosfix infixToPosfix = new InfixToPosfix();
-  Context context;
+  private InfixToPosfix infixToPosfix = new InfixToPosfix();
+  private Context context;
+  private Stack stack;
 
   private TextView tvCalc, tvPosfix, tvInfix;
   private String expression = "";
   private String posfix = "";
+  private int downSize = 0;
   private boolean isFirst = true;
+  private Integer sizeText = 5;
+  private Integer sizeTextOriginal = 0;
   /**
    * The {@link android.support.v4.view.PagerAdapter} that will provide fragments for each of the
    * sections. We use a {@link FragmentPagerAdapter} derivative, which will keep every loaded
@@ -121,8 +128,10 @@ public class Main2Activity extends AppCompatActivity{
   public void onClick(View view){
 
 
-    if (isFirst) {
+    if(isFirst){
       tvCalc = (TextView) findViewById(R.id.tvCalc);
+      downSize = (int) tvCalc.getTextSize();
+      tvCalc.setText("\n");
       isFirst = !isFirst;
     }
 
@@ -130,55 +139,110 @@ public class Main2Activity extends AppCompatActivity{
 
       case R.id.btnBack:
         backspace(view);
+        setTextSize(true);
         break;
       case R.id.btnDel:
         clearAll(view);
+        tvCalc.setTextSize(35);
         break;
       case R.id.btnEqual:
-        makeCalc(view);
         equality(view);
+        makeCalc(view);
         break;
       default:
         expression += ((TextView) view).getText().toString();
-        tvCalc.setText(expression);
+        print(tvCalc, expression);
+        setTextSize(false);
         break;
     }
   }
-
-  /**
-   * Gambiarra pura para poder pegar a instância do TextView. Para isso, deve-se dar um clique nesse
-   * textView antes de qualquer outra coisa...
-   */
-//  public void getScreen(View view){
-   // tvCalc = (TextView) view;
-  //}
 
   //Método para apagar um caractere
   public void backspace(View view){
     int length = expression.length();
 
     if(expression.isEmpty()){
-      tvCalc.setText("");
+      print(tvCalc, "");
       expression = "";
     } else{
-      tvCalc.setText(expression.substring(0, length - 1));
+      print(tvCalc, expression.substring(0, length - 1));
       expression = expression.substring(0, length - 1);
     }
   }
 
   //Método para apagar todos os caracteres da View
   public void clearAll(View view){
-    tvCalc.setText("");
+    print(tvCalc, "");
     expression = "";
   }
 
   //Método para dar push na pilha
   public void makeCalc(View view){
 
+    try{
+      exception();
+    } catch(ArithmeticException e){
+      tvCalc.setText(e.getMessage());
+      expression = "";
+      return;
+    }
+
+    stack = new Stack();
+    String[] term = posfix.split("");
+
+    for(String s : term){
+
+      if(s.equals("+"))
+        stack.push((Double) stack.pop() + (Double) stack.pop());
+      else if(s.equals("-"))
+        stack.push((Double) stack.pop() - (Double) stack.pop());
+      else if(s.equals("*"))
+        stack.push((Double) stack.pop() * (Double) stack.pop());
+      else if(s.equals("/"))
+        stack.push((Double) stack.pop() / (Double) stack.pop());
+      else if(!s.equals(""))
+        stack.push(Double.parseDouble(s));
+
+    }
+
+    expression = String.valueOf(stack.pop());
+    print(tvCalc, expression);
+    setTextSize(false);
+
+  }
+
+  private void exception(){
+
+    char first;
+    char second;
+
+    for(int i = 0; i < expression.length() - 1; i++){
+      first = expression.charAt(i);
+      second = expression.charAt(i + 1);
+
+      if(first == '/' && second == '0')
+        throw new ArithmeticException("Divisão por zero!");
+    }
+  }
+
+  private void setTextSize(boolean status){
+    if(tvCalc.getLineCount() > 1 && !status){
+      tvCalc.setTextSize(35 - sizeText);
+      sizeTextOriginal = 35 - sizeText;
+      sizeText += 5;
+      //downSize++;
+    } else if(status){
+      Log.d("size", tvCalc.getTextSize() + " | " + downSize);
+      if(tvCalc.getLineCount() == 1 && tvCalc.getTextSize() <= downSize){
+        tvCalc.setTextSize(sizeTextOriginal + 5);
+        sizeTextOriginal += 5;
+        sizeText = 5;
+      }
+    }
   }
 
   //Método que pega as expressões infixa e posfixa e adiciona nas views
-  public void equality(View view) {
+  public void equality(View view){
 
     tvPosfix = (TextView) findViewById(R.id.tvFormatPosfixa);
     tvInfix = (TextView) findViewById(R.id.tvFormatOrigin);
@@ -188,4 +252,9 @@ public class Main2Activity extends AppCompatActivity{
     tvInfix.setText(expression);
     tvPosfix.setText(posfix);
   }
+
+  private void print(TextView view, String value){
+    view.setText(value);
+  }
+
 }
