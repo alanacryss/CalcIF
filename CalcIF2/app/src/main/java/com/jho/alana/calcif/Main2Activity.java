@@ -246,11 +246,17 @@ public class Main2Activity extends AppCompatActivity{
 
     tvPosfix = (TextView) findViewById(R.id.tvFormatPosfixa);
     tvInfix = (TextView) findViewById(R.id.tvFormatOrigin);
-
     context = getApplicationContext();
-    posfix = infixToPosfix.infixToPosfix(expression, context);
-    tvInfix.setText(expression);
-    tvPosfix.setText(posfix);
+
+    if (infixToPosfix.countOcurrence(expression)) {
+      Toast.makeText(context, "Expressão inválida!", Toast.LENGTH_SHORT).show();
+      tvInfix.setText("Expressão inválida!");
+      tvPosfix.setText("Expressão inválida!");
+    } else {
+      posfix = infixToPosfix.infixToPosfix(expression, context);
+      tvInfix.setText(expression);
+      tvPosfix.setText(posfix);
+    }
   }
 
   private void print(TextView view, String value){

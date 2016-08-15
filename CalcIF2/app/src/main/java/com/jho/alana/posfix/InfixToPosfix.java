@@ -1,6 +1,7 @@
 package com.jho.alana.posfix;
 
 import android.content.Context;
+import android.util.Log;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -13,31 +14,31 @@ public class InfixToPosfix {
 
     Stack stack = new Stack();
 
-    public int getPriority(char caracter){
+    public int getPriority(char caracter) {
 
         int returnPriority = 0;
         String priority1 = "+-";
         String priority2 = "*/";
 
-        if('(' == caracter)
+        if ('(' == caracter)
             returnPriority = 1;
-        else if(priority1.indexOf(caracter) >= 0)
+        else if (priority1.indexOf(caracter) >= 0)
             returnPriority = 2;
-        else if(priority2.indexOf(caracter) >= 0)
+        else if (priority2.indexOf(caracter) >= 0)
             returnPriority = 3;
         else if ('^' == caracter)
             returnPriority = 4;
         return returnPriority;
     }
 
-    public  boolean operating(char caracter){
+    public boolean operating(char caracter) {
 
         String operands = "1234567890";
 
         return (operands.indexOf(Character.toUpperCase(caracter)) >= 0);
     }
 
-    public boolean operator(char caracter){
+    public boolean operator(char caracter) {
 
         String operators = "+-*/";
 
@@ -48,12 +49,12 @@ public class InfixToPosfix {
 
         char summit;
 
-        summit = (char)stack.peek();
+        summit = (char) stack.peek();
 
         return summit;
     }
 
-    public String infixToPosfix(String expression, Context context){
+    public String infixToPosfix(String expression, Context context) {
 
         String res = "";
         char caracter;
@@ -63,33 +64,32 @@ public class InfixToPosfix {
             Toast.makeText(context, "Expressão inválida!", Toast.LENGTH_SHORT).show();
         }*/
 
-        for(int i = 0; i < expression.length(); i++) {
+        /*if (!verifyParent(expression)) {
+            Toast.makeText(context, "Expressão inválida!", Toast.LENGTH_SHORT).show();
+        }
+*/
+        for (int i = 0; i < expression.length(); i++) {
             caracter = expression.charAt(i);
 
-            if (countOcurrence(expression)){
-                Toast.makeText(context, "Expressão inválida!", Toast.LENGTH_SHORT).show();
-            }
-
-            if(operating(caracter))
+            if (operating(caracter))
                 res += caracter;
-            else if(operator(caracter)){
+            else if (operator(caracter)) {
                 priority = getPriority(caracter);
 
-                while((!stack.isEmpty()) && (getPriority(top()) >= priority))
+                while ((!stack.isEmpty()) && (getPriority(top()) >= priority))
                     res += stack.pop();
                 stack.push(caracter);
-            }
-            else if('(' == caracter)
+            } else if ('(' == caracter)
                 stack.push(caracter);
-            else if(')' == caracter){
+            else if (')' == caracter) {
                 String item = stack.pop().toString();
-                while(!item.equals("(")){
+                while (!item.equals("(")) {
                     res += item;
                     item = stack.pop().toString();
                 }
             }
         }
-        while(!stack.isEmpty())
+        while (!stack.isEmpty())
             res += stack.pop().toString();
 
         return res;
@@ -116,4 +116,29 @@ public class InfixToPosfix {
         }
         return false;
     }
+
+    /*public boolean verifyParent(String expression) {
+
+        char exp[] = {};
+        String operators = "+-*//*";
+        String numbers = "1234567890";
+        char op[] = {};
+
+        for (int i = 0; i < expression.length(); i++) {
+            exp = expression.toCharArray();
+            for (int j = 0; j < operators.length(); j++) {
+            op = operators.toCharArray();
+            *//*if (i == 0 && exp[i] == '(')
+                return false;*//*
+
+                if (exp[i] == '(') {
+                    if (exp[i - 1] != op[j]) {
+                        return false;
+                    }
+                }
+            }
+        }
+
+        return true;
+    }*/
 }
