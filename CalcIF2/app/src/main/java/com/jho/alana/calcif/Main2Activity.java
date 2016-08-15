@@ -24,6 +24,7 @@ import com.jho.alana.posfix.InfixToPosfix;
 
 import org.w3c.dom.Text;
 
+import java.util.IllegalFormatException;
 import java.util.Stack;
 
 public class Main2Activity extends AppCompatActivity{
@@ -179,11 +180,17 @@ public class Main2Activity extends AppCompatActivity{
   //Método para dar push na pilha
   public void makeCalc(View view){
 
+    if(isFat())
+      return;
+
     try{
-      exception();
+      exception(false);
     } catch(ArithmeticException e){
       tvCalc.setText(e.getMessage());
       expression = "";
+      return;
+    } catch(Exception e){
+      e.printStackTrace();
       return;
     }
 
@@ -211,7 +218,7 @@ public class Main2Activity extends AppCompatActivity{
 
   }
 
-  private void exception(){
+  private void exception(boolean fat) throws Exception{
 
     char first;
     char second;
@@ -220,29 +227,42 @@ public class Main2Activity extends AppCompatActivity{
       first = expression.charAt(i);
       second = expression.charAt(i + 1);
 
-      if(first == '/' && second == '0')
+      if(first == '/' && second == '0' && !fat)
         throw new ArithmeticException("Divisão por zero!");
+
+      if((expression.charAt(i) == '+' || expression.charAt(i) == '-'
+          || expression.charAt(i) == '/' || expression.charAt(i) == '-') && fat){
+        throw new Exception("Error");
+      }
     }
   }
 
   private void setTextSize(boolean status){
     if(tvCalc.getLineCount() > 1 && !status){
+
       tvCalc.setTextSize(35 - sizeText);
       sizeTextOriginal = 35 - sizeText;
       sizeText += 5;
-      //downSize++;
+
     } else if(status){
-      Log.d("size", tvCalc.getTextSize() + " | " + downSize);
+
       if(tvCalc.getLineCount() == 1 && tvCalc.getTextSize() <= downSize){
+
         tvCalc.setTextSize(sizeTextOriginal + 5);
         sizeTextOriginal += 5;
         sizeText = 5;
+
       }
     }
   }
 
   //Método que pega as expressões infixa e posfixa e adiciona nas views
   public void equality(View view){
+
+    if(isFat()){
+      fatorial();
+      return;
+    }
 
     tvPosfix = (TextView) findViewById(R.id.tvFormatPosfixa);
     tvInfix = (TextView) findViewById(R.id.tvFormatOrigin);
@@ -257,6 +277,33 @@ public class Main2Activity extends AppCompatActivity{
       tvInfix.setText(expression);
       tvPosfix.setText(posfix);
     }
+  }
+
+  private void fatorial(){
+
+    try{
+
+      String []number = expression.split("!");
+      print(tvCalc, fat(Double.parseDouble(number[0])) + "");
+
+    }catch(Exception e){
+      print(tvCalc, e.getMessage());
+    }
+  }
+
+  private double fat(double n){
+    if(n < 2)
+      return 1;
+    else
+      return n * fat(n - 1);
+  }
+
+  private boolean isFat(){
+    for(int i = 0; i < expression.length(); i++){
+      if(expression.charAt(i) == '!')
+        return true;
+    }
+    return false;
   }
 
   private void print(TextView view, String value){
